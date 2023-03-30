@@ -20,7 +20,7 @@ app.get('/api', (req, res)  => {
   res.json({test: "test1"})
   })
 
-app.post('/create', async function(req, res) { 
+app.post('/api', async function(req, res) { 
   
   const nftContract = req.body.contract;
   const nftId = req.body.id;
