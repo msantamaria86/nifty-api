@@ -22,6 +22,8 @@ app.get('/api', (req, res)  => {
 
 app.post('/create', async function(req, res) { 
   
+  console.log('request', req);
+
   const nftContract = req.body.contract;
   const nftId = req.body.id;
   const price =req.body.price; // The price in wei
