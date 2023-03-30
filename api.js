@@ -1,5 +1,5 @@
 require('dotenv').config()
-const abi = require('./NftLogic.json');
+const abi = [require('./NftLogic.json')];
 const {ethers} = require('ethers');
 const express = require('express');
 const cors = require('cors');
