@@ -24,14 +24,15 @@ app.post('/create', async function(req, res) {
   
   console.log('request', req);
 
-  const nftContract = req.body.contract;
-  const nftId = req.body.id;
-  const price =req.body.price; // The price in wei
-  const parsedPrice = parseEther(price);
-  const isAuction = req.body.auction; // Whether it is an auction or not
-  const biddingTime = req.body.time // The bidding time in seconds
   
   try {
+    const nftContract = req.body.contract;
+    const nftId = req.body.id;
+    const price =req.body.price; // The price in wei
+    const parsedPrice = parseEther(price);
+    const isAuction = req.body.auction; // Whether it is an auction or not
+    const biddingTime = req.body.time // The bidding time in seconds
+    
     const tx = await contract.createListing(nftContract, nftId, parsedPrice, isAuction, biddingTime);
     console.log('Transaction sent: ', tx.hash);
 
