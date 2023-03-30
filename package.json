@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "ethers": "^6.2.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "name": "nifty-api",
+  "version": "1.0.0",
+  "main": "api.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
