@@ -17,10 +17,10 @@ const contractAddress = process.env.CONTRACT_ADDRESS;
 const contract = new ethers.Contract(contractAddress, abi.abi, signer);
 
 app.get('/api', (req, res)  => {
-  res.json({test: test1})
+  res.json({test: "test1"})
   })
 
-app.post('/api', async function(req, res) { 
+app.post('/create', async function(req, res) { 
   
   const nftContract = req.body.contract;
   const nftId = req.body.id;
@@ -39,9 +39,9 @@ app.post('/api', async function(req, res) {
         console.error(error);
         res.status(500).json({error: error.message});
     }
-  }),
+  })
 
-app.listen(PORT, () => {
-  console.warn(`The app is listening on http://localhost:${PORT}`);
-})
+// app.listen(PORT, () => {
+//   console.warn(`The app is listening on http://localhost:${PORT}`);
+// })
 //test
