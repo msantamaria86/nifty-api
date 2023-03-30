@@ -41,7 +41,6 @@ app.post('/create', async function(req, res) {
     }
   })
 
-// app.listen(PORT, () => {
-//   console.warn(`The app is listening on http://localhost:${PORT}`);
-// })
-//test
+app.listen(PORT, () => {
+  console.warn(`The app is listening on http://localhost:${PORT}`);
+})
