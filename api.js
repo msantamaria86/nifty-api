@@ -16,7 +16,7 @@ const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 const contractAddress = process.env.CONTRACT_ADDRESS; 
 const contract = new ethers.Contract(contractAddress, abi, signer);
 
-app.get('/api', (req, res) => {
+app.get('/api', (req, res)  => {
   res.json({test: test1})
   })
 
