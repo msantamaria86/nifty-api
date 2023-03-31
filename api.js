@@ -8,6 +8,9 @@ const morgan  = require('morgan');
 
 const app = express()
 const jsonParser = bodyParser.json()
+
+app.use(express.json());  
+app.use(express.urlencoded({  extended: true}));
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
@@ -24,7 +27,7 @@ app.get('/api', (req, res)  => {
 
 app.post('/create', jsonParser, async function(req, res) { 
   
-    console.log('BODY', req)
+    console.log('BODY', req.body)
   try {
     const nftContract = req.body.contract;
     const nftId = req.body.id;
