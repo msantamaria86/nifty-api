@@ -16,9 +16,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(morgan('dev'));
 
-const provider = new InfuraProvider(network);
 
-// const provider = new ethers.providers.JsonRpcProvider("https://rpc.slock.it/goerli"); 
+const provider = new ethers.getDefaultProvider("goerli"); 
 const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider); 
 const contractAddress = process.env.CONTRACT_ADDRESS; 
 const contract = new ethers.Contract(contractAddress, abi.abi, signer);
