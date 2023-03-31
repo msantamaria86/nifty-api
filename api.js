@@ -24,16 +24,15 @@ app.get('/api', (req, res)  => {
 
 app.post('/create', jsonParser, async function(req, res) { 
   
-  console.log('req', req.body)
   try {
     const nftContract = req.body.contract;
     const nftId = req.body.id;
     const price =req.body.price; // The price in wei
-    const parsedPrice = utils.parseEther(price);
+    // const parsedPrice = utils.parseEther(price);
     const isAuction = req.body.auction; // Whether it is an auction or not
     const biddingTime = req.body.time // The bidding time in seconds
 
-    const tx = await contract.createListing(nftContract, nftId, parsedPrice, isAuction, biddingTime);
+    const tx = await contract.createListing(nftContract, nftId, price, isAuction, biddingTime);
     console.log('Transaction sent: ', tx.hash);
 
     res.json({hash: tx.hash});
