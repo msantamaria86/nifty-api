@@ -1,6 +1,6 @@
 require('dotenv').config()
 const abi = require('./Marketplace.json');
-const bodyParser = require('body-parser')
+const bp = require('body-parser')
 const {ethers, utils} = require('ethers');
 const express = require('express');
 const cors = require('cors');
