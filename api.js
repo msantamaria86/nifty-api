@@ -22,7 +22,7 @@ app.get('/api', (req, res)  => {
 
 app.post('/create', async function(req, res) { 
   
-  
+  console.warn('req', req)
   try {
     const nftContract = req.body.contract;
     const nftId = req.body.id;
