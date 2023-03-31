@@ -16,8 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(morgan('dev'));
 
-const network = ethers.providers.getNetwork("goerli");
-const provider = new EtherscanProvider(network);
+const provider = new InfuraProvider(network);
 
 // const provider = new ethers.providers.JsonRpcProvider("https://rpc.slock.it/goerli"); 
 const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider); 
