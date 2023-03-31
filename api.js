@@ -39,7 +39,9 @@ app.post('/create', jsonParser, async function(req, res) {
 
     console.log('VALUES', nftContract, nftId, price, isAuction, biddingTime)
 
-    const tx = await contract.createListing(nftContract, nftId, price, isAuction, biddingTime);
+    const tx = await contract.createListing(nftContract, nftId, price, isAuction, biddingTime, {
+      gasLimit: 100000
+    });
     console.log('Transaction sent: ', tx.hash);
 
     res.json({hash: tx.hash});
