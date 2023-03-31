@@ -32,6 +32,8 @@ app.post('/create', jsonParser, async function(req, res) {
     const isAuction = req.body.auction; // Whether it is an auction or not
     const biddingTime = req.body.time // The bidding time in seconds
 
+    console.log('VALUES', nftContract, nftId, price, isAuction, biddingTime)
+
     const tx = await contract.createListing(nftContract, nftId, price, isAuction, biddingTime);
     console.log('Transaction sent: ', tx.hash);
 
