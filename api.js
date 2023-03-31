@@ -1,14 +1,13 @@
 require('dotenv').config()
 const abi = require('./NftLogic.json');
 const bodyParser = require('body-parser')
-const {ethers} = require('ethers');
+const {ethers, utils} = require('ethers');
 const express = require('express');
 const cors = require('cors');
 const morgan  = require('morgan');
 
 const app = express()
 const jsonParser = bodyParser.json()
-// const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
@@ -30,7 +29,7 @@ app.post('/create', jsonParser, async function(req, res) {
     const nftContract = req.body.contract;
     const nftId = req.body.id;
     const price =req.body.price; // The price in wei
-    const parsedPrice = parseEther(price);
+    const parsedPrice = utils.parseEther(price);
     const isAuction = req.body.auction; // Whether it is an auction or not
     const biddingTime = req.body.time // The bidding time in seconds
 
