@@ -30,11 +30,11 @@ app.post('/create', jsonParser, async function(req, res) {
     console.log('BODY', req.body)
   try {
     const nftContract = req.body.contract;
-    const nftId = req.body.id;
+    const nftId = req.body.nftId;
     const price =req.body.price; // The price in wei
     // const parsedPrice = utils.parseEther(price);
-    const isAuction = req.body.auction; // Whether it is an auction or not
-    const biddingTime = req.body.time // The bidding time in seconds
+    const isAuction = req.body.isAuction; // Whether it is an auction or not
+    const biddingTime = req.body.biddingTime // The bidding time in seconds
 
     console.log('VALUES', nftContract, nftId, price, isAuction, biddingTime)
 
