@@ -1,11 +1,14 @@
 require('dotenv').config()
 const abi = require('./NftLogic.json');
+const bodyParser = require('body-parser')
 const {ethers} = require('ethers');
 const express = require('express');
 const cors = require('cors');
 const morgan  = require('morgan');
 
 const app = express()
+const jsonParser = bodyParser.json()
+// const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
@@ -20,9 +23,9 @@ app.get('/api', (req, res)  => {
   res.json({test: "test1"})
   })
 
-app.post('/create', async function(req, res) { 
+app.post('/create', jsonParser, async function(req, res) { 
   
-  console.warn('req', req)
+  console.log('req', req)
   try {
     const nftContract = req.body.contract;
     const nftId = req.body.id;
