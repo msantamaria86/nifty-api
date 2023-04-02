@@ -23,9 +23,9 @@ const contractAddress = process.env.CONTRACT_ADDRESS;
 const contract = new ethers.Contract(contractAddress, abi.abi, signer);
 
 app.get('/api', async function (req, res) {
-  const tx = await contract.getPrice(listingId)
+  const id = await contract.getPrice(listingId)
   });
-  console.log('Transaction sent: ', tx.hash)
+  console.log('Transaction id:', id)
 
 app.post('/create', jsonParser, async function(req, res) { 
   
