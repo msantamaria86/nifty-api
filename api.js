@@ -22,13 +22,13 @@ const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 const contractAddress = process.env.CONTRACT_ADDRESS; 
 const contract = new ethers.Contract(contractAddress, abi.abi, signer);
 
-app.get('/api', jsonParser, async function (req, res) {
-  const id = await contract.getPrice(req.body.listingId)
+app.get('/api', async function (req, res) {
+  const id = await contract.getPrice(req.query.listingId)
   console.log('Transaction id:', id)
   });
 
 app.post('/create', jsonParser, async function(req, res) { 
-  
+
   console.log('BODY', req.body)
   try {
     const nftContract = req.body.contract;
