@@ -22,13 +22,14 @@ const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 const contractAddress = process.env.CONTRACT_ADDRESS; 
 const contract = new ethers.Contract(contractAddress, abi.abi, signer);
 
-app.get('/api', (req, res)  => {
-  res.json({test: "test1"})
-  })
+app.get('/api', async function (req, res) {
+  const tx = await contract.getPrice(listingId)
+  });
+  console.log('Transaction sent: ', tx.hash)
 
 app.post('/create', jsonParser, async function(req, res) { 
   
-    console.log('BODY', req.body)
+  console.log('BODY', req.body)
   try {
     const nftContract = req.body.contract;
     const nftId = req.body.nftId;
@@ -39,10 +40,10 @@ app.post('/create', jsonParser, async function(req, res) {
 
     console.log('VALUES', nftContract, nftId, price, isAuction, biddingTime)
 
-    const tx = await contract.createListing(nftContract, nftId, price, isAuction, biddingTime, {
+    const id = await contract.createListing(nftContract, nftId, price, isAuction, biddingTime, {
       gasLimit: 100000
     });
-    console.log('Transaction sent: ', tx.hash);
+    console.log('listing id: ', id);
 
     res.json({hash: tx.hash});
     
